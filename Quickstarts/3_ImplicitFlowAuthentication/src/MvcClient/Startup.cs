@@ -12,7 +12,7 @@ namespace MvcClient
             services.AddMvc();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
+            // 将身份认证服务添加到 DI。
             services.AddAuthentication(options =>
                 {
                     options.DefaultScheme = "Cookies";
@@ -20,7 +20,7 @@ namespace MvcClient
                 })
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
-                {
+                {//用于配置执行 OpenID Connect 协议的处理程序。
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
 
