@@ -52,6 +52,7 @@ namespace IdentityServerWithAspNetIdentity
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<ApplicationUser>();
+                // AddTestUsers被替换
 
             if (Environment.IsDevelopment())
             {
