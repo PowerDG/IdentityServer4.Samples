@@ -56,3 +56,6 @@ namespace IdentityServerWithAspNetIdentity
         }
     }
 }
+
+
+// dotnet ef database update -c ApplicationDbContext
