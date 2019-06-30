@@ -13,7 +13,10 @@ namespace Client
     {
         private static async Task Main()
         {
-            // discover endpoints from metadata
+//             // discover endpoints from metadata
+//             为 "Client" 项目添加 Nuget 包：IdentityModel
+
+// IdentityModel 包括用于发现 IdentityServer 各个终结点（EndPoint）的客户端库
             var client = new HttpClient();
 
             var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5000");
@@ -44,6 +47,7 @@ namespace Client
 
             // call api
             var apiClient = new HttpClient();
+            // 使用HTTP Authorization标头
             apiClient.SetBearerToken(tokenResponse.AccessToken);
 
             var response = await apiClient.GetAsync("http://localhost:5001/identity");
