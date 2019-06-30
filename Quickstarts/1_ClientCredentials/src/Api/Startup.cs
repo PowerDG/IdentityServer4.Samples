@@ -14,6 +14,12 @@ namespace Api
                 .AddAuthorization()
                 .AddJsonFormatters();
 
+    //             将身份验证服务添加到DI和身份验证中间件到管道。 这些将：
+
+    // 验证传入令牌以确保它来自受信任的颁发者
+    // 验证令牌是否有效用于此API（也称为 audience）
+
+
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
